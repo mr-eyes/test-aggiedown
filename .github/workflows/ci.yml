@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.PATPAT }}  # Set the PAT as an environment variable
-      GITHUB_TOKEN: ${{ secrets.PATPAT }}
+      # GITHUB_TOKEN: ${{ secrets.PATPAT }}
     steps:
     - uses: actions/checkout@v4
     - name: install xelatex
