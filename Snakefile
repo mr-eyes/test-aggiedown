@@ -4,13 +4,13 @@ rule all:
 rule install_deps:
   conda: 'envs/R.yml'
   shell: """
-    Rscript -e 'options(repos = c(CRAN = "http://cran.rstudio.com")); if (!require("devtools", quietly = TRUE)) install.packages("devtools"); install.packages("bookdown"); devtools::install_github("ryanpeek/aggiedown");'
+    Rscript -e 'devtools::install_github("ryanpeek/aggiedown");'
   """
 
 rule start_thesis:
   conda: 'envs/R.yml'
   shell: """
-    Rscript -e "rmarkdown::draft('index.Rmd', template = 'thesis', package = 'aggiedown', create_dir = TRUE)"
+    R -e "rmarkdown::draft('index.Rmd', template = 'thesis', package = 'aggiedown', create_dir = TRUE)"
   """
 
 rule build_thesis:
