@@ -4,7 +4,7 @@ rule all:
 rule install_deps:
   conda: 'envs/R.yml'
   shell: """
-    TAR=/bin/tar R -e 'devtools::install_github("ryanpeek/aggiedown")'
+    Rscript -e 'options(repos = c(CRAN = "http://cran.rstudio.com")); if (!require("devtools", quietly = TRUE)) install.packages("devtools"); devtools::install_github("ryanpeek/aggiedown");'
   """
 
 rule start_thesis:
