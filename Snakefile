@@ -4,7 +4,7 @@ rule all:
 rule install_deps:
   conda: 'envs/R.yml'
   shell: """
-    TAR=/bin/tar R -e 'devtools::install_github("ryanpeek/aggiedown@ae99300d43bdccc16069efcc08198624c76eee0c", upgrade = "never")'
+    TAR=/bin/tar R -e 'devtools::install_github("ryanpeek/aggiedown")'
   """
 
 rule start_thesis:
